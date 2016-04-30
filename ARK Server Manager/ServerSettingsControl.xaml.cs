@@ -1,28 +1,14 @@
 ﻿using ARK_Server_Manager.Lib;
-using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Security.Principal;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ARK_Server_Manager.Lib.ViewModel;
 
 namespace ARK_Server_Manager
@@ -273,6 +259,18 @@ namespace ARK_Server_Manager
                     MessageBox.Show(String.Format("The profile at {0} failed to load.  The error was: {1}\r\n{2}", dialog.FileName, ex.Message, ex.StackTrace), "Profile failed to load", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }            
+        }
+
+        // when they click the By Name radio, change our type
+        private void radByName_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Server.Profile.MapSource = ServerProfile.MapSourceType.ByName;
+        }
+
+        // when they click the By ID Radio, we know we have a mod ID for the map, not a map name.
+        private void radById_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Server.Profile.MapSource = ServerProfile.MapSourceType.ById;
         }
 
         // REVIEW: This is a sample Command implementation which replaces the original Save_Click command, for reference when refactoring.
@@ -633,5 +631,6 @@ namespace ARK_Server_Manager
                 );
             }
         }
+
     }
 }

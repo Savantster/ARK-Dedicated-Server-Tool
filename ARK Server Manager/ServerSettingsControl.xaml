@@ -906,6 +906,8 @@
                                             </Binding>
                                         </TextBox.Text>
                                     </TextBox>
+                                    <RadioButton x:Name="radByName" Content="ByName" Grid.Column="2" HorizontalAlignment="Left" Margin="223,5,0,0" VerticalAlignment="Top" GroupName="Map" Checked="radByName_Checked"/>
+                                    <RadioButton x:Name="radById" Content="ByModId" Grid.Column="2" HorizontalAlignment="Left" Margin="301,5,0,0" VerticalAlignment="Top" GroupName="Map" Checked="radById_Checked"/>
                                 </Grid>
                             </GroupBox>
 

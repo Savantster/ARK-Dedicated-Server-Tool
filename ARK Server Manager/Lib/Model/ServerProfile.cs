@@ -1808,18 +1808,20 @@ namespace ARK_Server_Manager.Lib
             }
             else
             {
-#if false
+//#if false
                 if (this.MapSource == MapSourceType.ByName)
                 {
                     serverArgs.Append(this.ServerMap);
                 }
                 else
                 {
-                    serverArgs.Append($"-MapModID={this.ServerMapModId}");
+                    // for my hack, we're using the same entry field.. using radio buttons to actually set MapSourceType
+                    serverArgs.Append($"-MapModID={this.ServerMap}");
+                    //serverArgs.Append($"-MapModID={this.ServerMapModId}");
                 }
-#else
-                serverArgs.Append(this.ServerMap);
-#endif
+//#else
+//                serverArgs.Append(this.ServerMap);
+//#endif
             }
 
             // This flag is broken in the INI        
