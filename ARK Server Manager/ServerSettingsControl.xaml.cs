@@ -16,6 +16,7 @@ namespace ARK_Server_Manager
     public enum ServerSettingsResetAction
     {
         // Sections
+        AdministrationSection,
         RulesSection,
         ChatAndNotificationsSection,
         HudAndVisualsSection,
@@ -28,6 +29,7 @@ namespace ARK_Server_Manager
         SOTFSection,
 
         // Properties
+        MapNameProperty,
         PlayerMaxXpProperty,
         DinoMaxXpProperty,
         PlayerPerLevelStatMultipliers,
@@ -557,6 +559,10 @@ namespace ARK_Server_Manager
                         switch (action)
                         {
                             // sections
+                            case ServerSettingsResetAction.AdministrationSection:
+                                this.Settings.ResetAdministrationSection();
+                                break;
+
                             case ServerSettingsResetAction.ChatAndNotificationsSection:
                                 this.Settings.ResetChatAndNotificationSection();
                                 break;
@@ -598,6 +604,10 @@ namespace ARK_Server_Manager
                                 break;
 
                             // Properties
+                            case ServerSettingsResetAction.MapNameProperty:
+                                this.Settings.ResetMapName();
+                                break;
+
                             case ServerSettingsResetAction.PlayerMaxXpProperty:
                                 this.Settings.ResetOverrideMaxExperiencePointsPlayer();
                                 break;
